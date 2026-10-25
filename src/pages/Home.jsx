@@ -16,7 +16,7 @@ function Home() {
       if(query)URL=`https://dummyjson.com/recipes/search?limit=6&skip=${skipCount}&q=${query}`
       const { data } = await axios.get(URL);
 
-      console.log(data);
+      // console.log(data);
     setRecipes((prev) => skipCount===0?data.recipes:[...prev, ...data.recipes]);
       setTotal(data.total);
     } catch (error) {
@@ -30,7 +30,7 @@ function Home() {
   function handleSearch(e){
     e.preventDefault();
     const form = new FormData(e.target);
-    console.log(form.get("query"));
+    // console.log(form.get("query"));
     setSearchQuery(form.get("query"));
     fetchRecipes(0,form.get("query"));
   }
